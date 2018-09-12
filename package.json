@@ -12,6 +12,7 @@
     "dependencies": {
         "cordova-android": "^7.0.0",
         "cordova-browser": "^5.0.4",
+        "cordova-plugin-camera": "^4.0.3",
         "cordova-plugin-contacts": "^3.0.1",
         "cordova-plugin-device": "^2.0.2",
         "cordova-plugin-dialogs": "^2.0.1",
@@ -24,7 +25,8 @@
             "cordova-plugin-device": {},
             "cordova-plugin-dialogs": {},
             "cordova-plugin-geolocation": {},
-            "cordova-plugin-contacts": {}
+            "cordova-plugin-contacts": {},
+            "cordova-plugin-camera": {}
         },
         "platforms": [
             "android",
