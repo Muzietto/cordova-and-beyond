@@ -3,7 +3,7 @@ var EmployeeListView = function() {
 
   this.initialize = function() {
     this.$el = $('<div/>');
-    this.render;
+    this.render();
   }
 
   this.setEmployees = function(emps) {
