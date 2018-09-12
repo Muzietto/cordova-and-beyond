@@ -1,5 +1,22 @@
+import $ from 'jquery';
+import Handlebars from 'handlebars';
+import EmployeeListView from './EmployeeListView';
+
+const homeTpl = `
+<header class="bar bar-nav">
+    <h1 class="title">Directory</h1>
+</header>
+<div class="bar bar-standard bar-header-secondary">
+    <input type="button" class="the-button" value="CLICK" />
+    <input class='search-key' type="search"/>
+</div>
+<div class="content"></div>
+`
+
 var HomeView = function(service) {
   var employeeListView;
+
+  this.template = Handlebars.compile(homeTpl);
 
   this.initialize = function() {
     this.$el = $('<div/>');
@@ -9,13 +26,14 @@ var HomeView = function(service) {
     })
 
     employeeListView = new EmployeeListView();
-    this.render;
+    this.render();
   }
 
   this.findByName = function() {
+    const self = this;
     service.findByName($('.search-key', this.$el).val())
       .done(function (employees) {
-          $('.content', this.$el)
+          $('.content', self.$el)
             .html(employeeListView.setEmployees(employees));
       });
   }
@@ -28,3 +46,5 @@ var HomeView = function(service) {
 
   this.initialize();
 }
+
+export default HomeView;

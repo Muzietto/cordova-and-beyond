@@ -1,5 +1,6 @@
-var router = (function () {
+import $ from 'jquery';
 
+var router = (function () {
     "use strict";
 
     var routes = [];
@@ -46,3 +47,5 @@ var router = (function () {
     };
 
 }());
+
+export default router;
