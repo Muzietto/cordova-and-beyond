@@ -1,3 +1,7 @@
+# Cordova
+platforms/
+plugins/
+
 # Logs
 logs
 *.log
