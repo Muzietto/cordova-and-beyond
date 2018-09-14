@@ -62,8 +62,6 @@ gulp.task('prepare-cordova', [], async () => {
 function webpackTask(watch, wwwRoot = 'www') {
   const webpackStream = require('webpack-stream')
   const webpack = require('webpack')
-  // need this to prevent the pipe from breaking on errors, and continue
-  // watching files for changes.
   const plumber = require('gulp-plumber')
   const webpackConfig = require('./configs/webpack.config.js')(
     argv.environment || 'dev-shared',
@@ -72,7 +70,6 @@ function webpackTask(watch, wwwRoot = 'www') {
 
   const ENTRYPOINT = webpackConfig.entry
   const OUTPUT_DIR = path.join(__dirname, wwwRoot)
-  console.log('-----> wwwRoot=' + wwwRoot)
 
   const config = Object.assign({}, webpackConfig, { watch })
   return gulp
