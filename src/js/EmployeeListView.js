@@ -6,7 +6,7 @@ const employeeListTpl = `
     {{#each this}}
     <li class="table-view-cell media">
       <a href="#employees/{{ id }}">
-          <img class="media-object pull-left" src="src/assets/pics/{{pic}}">
+          <img class="media-object pull-left" src="assets/pics/{{pic}}">
           <div class="media-body">
               {{firstName}} {{lastName}}
               <p>{{title}}</p>

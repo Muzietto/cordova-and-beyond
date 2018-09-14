@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Handlebars from 'handlebars';
-import EmployeeListView from './EmployeeListView';
+import EmployeeListView from 'app/js/EmployeeListView';
 
 const homeTpl = `
 <header class="bar bar-nav">

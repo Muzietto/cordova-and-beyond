@@ -12,7 +12,7 @@ const employeeTpl = `
     <div class="card">
         <ul class="table-view">
             <li class="table-view-cell media">
-                <img class="media-object pull-left emp-pic" src="src/assets/pics/{{pic}}">
+                <img class="media-object pull-left emp-pic" src="assets/pics/{{pic}}">
                 <div class="media-body">
                     {{ firstName }} {{ lastName }}
                     <p>{{ title }}</p>

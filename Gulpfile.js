@@ -21,9 +21,9 @@ const getPlatform = args => {
 }
 const platform = getPlatform(argv)
 
-gulp.task('webpack-watch', () => webpackTask(true))
-gulp.task('webpack-single', () => webpackTask(false))
-gulp.task('webpack-dev-server', webpackDevServerTask)
+gulp.task('webpack-watch', ['clean-www'], () => webpackTask(true))
+gulp.task('webpack-single', ['clean-www'], () => webpackTask(false))
+gulp.task('webpack-dev-server', ['clean-www'], webpackDevServerTask)
 
 gulp.task('default', ['webpack-single'])
 
@@ -43,18 +43,22 @@ gulp.task('run-browser', ['webpack-single'], () =>
   exec('cordova run browser')
 )
 
-gulp.task('clean', () =>
-  exec('rm -rf platforms/* plugins/* www/*')
+gulp.task('clean-www', () =>
+  exec('rm -rf www/*')
 )
 
-gulp.task('prepare-cordova', [], async () => {
+gulp.task('clean-all', ['clean-www'], () =>
+  exec('rm -rf platforms/* plugins/*')
+)
+
+gulp.task('prepare-cordova', ['clean-all'], async () => {
   await exec('([ -d www ] || mkdir www)')
 
-//  for (const p of ['browser', 'android']) {
-//    if (platform !== p) {
-//      await exec(`cordova platform add ${p}`)
-//    }
-//  }
+  for (const p of ['browser', 'android']) {
+    if (platform !== p) {
+      await exec(`cordova platform add ${p}`)
+    }
+  }
 
   await exec('cordova prepare')
 })

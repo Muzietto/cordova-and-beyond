@@ -1,20 +1,20 @@
 import $ from 'jquery';
 import { sampleConstants } from 'environment'
 
-import '../assets/ratchet/css/ratchet.css'
-import '../assets/css/styles.css'
-import '../assets/css/pageslider.css'
+import 'assets/ratchet/css/ratchet.css'
+import 'assets/css/styles.css'
+import 'assets/css/pageslider.css'
 
-import HomeView from './HomeView';
-import EmployeeListView from './EmployeeListView';
-import EmployeeView from './EmployeeView';
-import router from './lib/router';
-import PageSlider from './lib/pageslider';
-import EmployeeService from './services/memory/EmployeeService';
+import HomeView from 'app/js/HomeView';
+import EmployeeListView from 'app/js/EmployeeListView';
+import EmployeeView from 'app/js/EmployeeView';
+import router from 'app/js/lib/router';
+import PageSlider from 'app/js/lib/pageslider';
+import EmployeeService from 'app/js/services/memory/EmployeeService';
 
 //https://stackoverflow.com/questions/37313954/how-to-url-loader-multiple-images-in-webpack
 //https://stackoverflow.com/questions/31419899/webpack-dynamic-require-with-loaders-in-require-statement/31436916#31436916
-var requireContext = require.context('file-loader!../assets/pics', true, /^\.\/.*\.jpg$/);
+var requireContext = require.context('file-loader!assets/pics', true, /^\.\/.*\.jpg$/);
 requireContext.keys().map(requireContext);
 
 console.log(`username is ${sampleConstants.username}`);

@@ -75,7 +75,8 @@ module.exports = function getWebpackConfig(
           test: /\.(jpg|png|ttf|eot|svg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'file-loader',
           options: {
-            name: "[path][name].[ext]", //https://survivejs.com/webpack/loading/images/
+            name: "[name].[ext]", //https://survivejs.com/webpack/loading/images/
+            outputPath: 'assets/pics/'
           },
         },
       ],
@@ -86,7 +87,6 @@ module.exports = function getWebpackConfig(
         handlebars: 'handlebars/dist/handlebars.min.js', // https://github.com/wycats/handlebars.js/issues/1174#issuecomment-229918935
         assets: path.resolve(ROOT_PATH, 'src/assets'),
         app: path.resolve(ROOT_PATH, 'src'),
-//        test: path.resolve(ROOT_PATH, 'src/test'),
         environment: path.resolve(
           ROOT_PATH,
           'configs',
