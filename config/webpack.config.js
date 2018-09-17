@@ -1,18 +1,20 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const ROOT_PATH = path.resolve(__dirname, '..')
-const SRC_PATH = path.resolve(ROOT_PATH, 'src')
-const CONFIG_PATH = path.resolve(ROOT_PATH, 'config')
+const ROOT_PATH = path.resolve(__dirname, '..');
+const SRC_PATH = path.resolve(ROOT_PATH, 'src');
+const CONFIG_PATH = path.resolve(ROOT_PATH, 'config');
 
 module.exports = function getWebpackConfig(
   environment,
   target = 'development'
 ) {
-  const isProduction = target === 'production'
-  const isDevelopment = target === 'development'
-  const enableSourceMap = !isProduction
+
+  const isProduction = target === 'production';
+  const isDevelopment = target === 'development';
+  const enableSourceMap = !isProduction;
+
   const config = {
     watch: false,
     entry: ['./src/js/app.js'],
@@ -21,7 +23,6 @@ module.exports = function getWebpackConfig(
       filename: 'index.js',
     },
 
-    // use inline source maps.
     devtool: '#inline-source-map',
 
     module: {
@@ -107,7 +108,7 @@ module.exports = function getWebpackConfig(
         'process.env.NODE_ENV': JSON.stringify(target),
       }),
     ],
-  }
+  };
 
   if (isProduction) {
     config.plugins = config.plugins.concat([
@@ -116,12 +117,15 @@ module.exports = function getWebpackConfig(
         sourceMap: enableSourceMap,
         mangle: false,
       }),
-    ])
+    ]);
   }
 
   if (isDevelopment) {
-    config.plugins = [...config.plugins, new webpack.NamedModulesPlugin()]
+    config.plugins = [
+      ...config.plugins,
+      new webpack.NamedModulesPlugin(),
+    ];
   }
 
-  return config
+  return config;
 }
