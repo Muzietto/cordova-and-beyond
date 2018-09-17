@@ -1,4 +1,3 @@
-/* eslint-disable */
 const gulp = require('gulp')
 const log = require('fancy-log')
 const fs = require('fs')
@@ -67,7 +66,7 @@ function webpackTask(watch, wwwRoot = 'www') {
   const webpackStream = require('webpack-stream')
   const webpack = require('webpack')
   const plumber = require('gulp-plumber')
-  const webpackConfig = require('./configs/webpack.config.js')(
+  const webpackConfig = require('./config/webpack.config.js')(
     argv.environment || 'dev-shared',
     argv.target
   )
@@ -98,7 +97,7 @@ function webpackDevServerTask(callback) {
   const webpack = require('webpack')
   const WebpackDevServer = require('webpack-dev-server')
 
-  const webpackConfig = require('./configs/webpack.config.js')(
+  const webpackConfig = require('./config/webpack.config.js')(
     argv.environment || 'dev',
     argv.target
   )
