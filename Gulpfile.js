@@ -93,7 +93,8 @@ function webpackTask(watch, wwwRoot = 'www') {
 }
 
 function webpackDevServerTask(callback) {
-  gulp.start('add-csp')
+  // https://medium.com/@minozhenko/content-security-policy-for-webpack-b4d1dd305feb
+  // gulp.start('add-csp')
   const webpack = require('webpack')
   const WebpackDevServer = require('webpack-dev-server')
 
