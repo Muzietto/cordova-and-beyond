@@ -3,9 +3,8 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const ROOT_PATH = path.resolve(__dirname, '..')
-const SOURCES_PATH = path.resolve(ROOT_PATH, 'src')
-const MODULES_PATH = path.resolve(ROOT_PATH, 'node_modules')
-const CONFIGS_PATH = path.resolve(ROOT_PATH, 'configs')
+const SRC_PATH = path.resolve(ROOT_PATH, 'src')
+const CONFIG_PATH = path.resolve(ROOT_PATH, 'config')
 
 module.exports = function getWebpackConfig(
   environment,
@@ -30,9 +29,8 @@ module.exports = function getWebpackConfig(
         {
           test: /\.js$|\.jsx$/,
           include: [
-            SOURCES_PATH,
-            CONFIGS_PATH,
-//            path.resolve(MODULES_PATH, 'isemail'),
+            SRC_PATH,
+            CONFIG_PATH,
           ],
           use: {
             loader: 'babel-loader',
@@ -89,7 +87,7 @@ module.exports = function getWebpackConfig(
         app: path.resolve(ROOT_PATH, 'src'),
         environment: path.resolve(
           ROOT_PATH,
-          'configs',
+          'config',
           `environment.${environment}.js`
         ),
       },
@@ -99,11 +97,6 @@ module.exports = function getWebpackConfig(
       net: 'mock',
     },
     plugins: [
-//      new webpack.LoaderOptionsPlugin({
-//        eslint: {
-//          configFile: '.eslintrc',
-//        },
-//      }),
       new webpack.NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(ROOT_PATH, './src/index.html'),
