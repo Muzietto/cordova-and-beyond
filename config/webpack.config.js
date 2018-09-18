@@ -37,9 +37,9 @@ module.exports = function getWebpackConfig(
             loader: 'babel-loader',
             options: {
               babelrc: false,
-              presets: ['env'/*, 'flow', 'react'*/],
+              presets: ['env', 'react'],
               plugins: [
-                //'react-hot-loader/babel',
+                'react-hot-loader/babel',
                 'transform-object-rest-spread',
                 'transform-class-properties',
                 'transform-export-default',
