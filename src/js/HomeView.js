@@ -1,3 +1,4 @@
+import React from 'react';
 import $ from 'jquery';
 import Handlebars from 'handlebars';
 import EmployeeListView from 'app/js/EmployeeListView';
@@ -12,6 +13,40 @@ const homeTpl = `
 </div>
 <div class="content"></div>
 `
+const clickHandler = () => {
+  alert('Employee Directory v3.4');
+}
+
+const keyUpHandler = function() {
+  const self = this;
+  service.findByName($('.search-key', this.$el).val())
+    .done(function (employees) {
+        $('.content', self.$el)
+          .html(employeeListView.setEmployees(employees));
+    });
+}
+
+const HomeViewz = props => (
+  <React.Fragment>
+    <header className='bar bar-nav'>
+        <h1 className='title'>Directory</h1>
+    </header>
+    <div className='bar bar-standard bar-header-secondary'>
+        <input
+          type='button'
+          className='the-button'
+          value='CLICK'
+          onClick={clickHandler}
+        />
+        <input
+          className='search-key'
+          type='search'
+          onKeyUp={keyUpHandler}
+        />
+    </div>
+    <div className='content'></div>
+  </React.Fragment>
+)
 
 var HomeView = function(service) {
   var employeeListView;
