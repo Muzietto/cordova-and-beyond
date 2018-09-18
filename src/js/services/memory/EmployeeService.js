@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-var EmployeeService = function() {
+const EmployeeService = function() {
 
     this.initialize = function() {
         // No Initialization required

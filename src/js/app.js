@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import $ from 'jquery';
 import { sampleConstants } from 'environment'
 
@@ -24,8 +27,12 @@ var service = new EmployeeService();
 
 service.initialize().done(function () {
   router.addRoute('', function() {
-      //$('body').html(new HomeView(service).render().$el);
-      slider.slidePage(new HomeView(service).render().$el);
+    //$('body').html(new HomeView(service).render().$el);
+    //slider.slidePage(new HomeView(service).render().$el);
+    ReactDOM.render(
+      <HomeView employeeService={service} />,
+      document.getElementById('THE_BODY')
+    );
   });
 
   router.addRoute('employees/:id', function(id) {
