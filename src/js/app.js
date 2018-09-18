@@ -22,23 +22,21 @@ requireContext.keys().map(requireContext);
 
 console.log(`username is ${sampleConstants.username}`);
 
-var slider = new PageSlider($('body'));
+var slider = new PageSlider($('#SLIDER_ROOT'));
 var service = new EmployeeService();
 
 service.initialize().done(function () {
   router.addRoute('', function() {
-    //$('body').html(new HomeView(service).render().$el);
-    //slider.slidePage(new HomeView(service).render().$el);
-    ReactDOM.render(
-      <HomeView employeeService={service} />,
-      document.getElementById('THE_BODY')
-    );
+    ReactDOM.unmountComponentAtNode(document.getElementById('REACT_ROOT'))
+    slider.slidePage(new HomeView(service).render().$el);
   });
 
   router.addRoute('employees/:id', function(id) {
       service.findById(parseInt(id)).done(function(employee) {
-          //$('body').html(new EmployeeView(employee).render().$el);
-          slider.slidePage(new EmployeeView(employee).render().$el);
+          ReactDOM.render(
+            <EmployeeView employee={employee} />,
+            document.getElementById('REACT_ROOT')
+          );
       });
   });
 
