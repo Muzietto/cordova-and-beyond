@@ -20,6 +20,10 @@ const getPlatform = args => {
 };
 const platform = getPlatform(argv);
 
+gulp.task('watch', () => {
+  gulp.watch('src/**/**.js', ['build-browser']);
+})
+
 gulp.task('webpack-watch', ['clean-www'], () => webpackTask(true));
 gulp.task('webpack-single', ['clean-www'], () => webpackTask(false));
 gulp.task('webpack-dev-server', ['clean-www'], webpackDevServerTask);
