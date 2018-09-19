@@ -38,7 +38,7 @@ function alerter() { alert('Employee Directory v3.4'); };
 function findByName(context, service) {
   return ev => {
     service.findByName(ev.target.value)
-      .done(employees => {
+      .then(employees => {
         context.setState({employees})
       });
   }

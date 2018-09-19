@@ -1,6 +1,5 @@
-import $ from 'jquery';
 
-var router = (function () {
+const router = (function () {
     "use strict";
 
     var routes = [];
@@ -38,7 +37,7 @@ var router = (function () {
         }
     }
 
-    $(window).on('hashchange', start);
+    window.addEventListener('hashchange', start);
 
     return {
         addRoute: addRoute,

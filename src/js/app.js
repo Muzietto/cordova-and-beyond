@@ -20,7 +20,7 @@ console.log(`username is ${sampleConstants.username}`);
 
 var service = new EmployeeService();
 
-service.initialize().done(function () {
+service.initialize().then(function () {
   router.addRoute('', function() {
     ReactDOM.unmountComponentAtNode(document.getElementById('REACT_ROOT'))
     ReactDOM.render(
@@ -30,7 +30,7 @@ service.initialize().done(function () {
   });
 
   router.addRoute('employees/:id', function(id) {
-      service.findById(parseInt(id)).done(function(employee) {
+      service.findById(parseInt(id)).then(function(employee) {
           ReactDOM.render(
             <EmployeeView employee={employee} />,
             document.getElementById('REACT_ROOT')

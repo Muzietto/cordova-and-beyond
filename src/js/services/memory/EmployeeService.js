@@ -1,16 +1,12 @@
-import $ from 'jquery';
 
 const EmployeeService = function() {
 
   this.initialize = function() {
     // No Initialization required
-    var deferred = $.Deferred();
-    deferred.resolve();
-    return deferred.promise();
+    return Promise.resolve();
   }
 
   this.findById = function(id) {
-    var deferred = $.Deferred();
     var employee = null;
     var l = employees.length;
     for (var i = 0; i < l; i++) {
@@ -19,18 +15,15 @@ const EmployeeService = function() {
         break;
       }
     }
-    deferred.resolve(employee);
-    return deferred.promise();
+    return Promise.resolve(employee);
   }
 
   this.findByName = function(searchKey) {
-    var deferred = $.Deferred();
     var results = employees.filter(function(element) {
       var fullName = element.firstName + " " + element.lastName;
       return fullName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
     });
-    deferred.resolve(results);
-    return deferred.promise();
+    return Promise.resolve(results);
   }
 
   var employees = [{
