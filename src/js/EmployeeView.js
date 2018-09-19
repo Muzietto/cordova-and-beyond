@@ -1,77 +1,5 @@
 import React from 'react';
 
-import $ from 'jquery';
-import Handlebars from 'handlebars';
-
-const addLocation = function(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(
-      function(position) {
-          alert(position.coords.latitude + ',' + position.coords.longitude);
-      },
-      function(err) {
-          alert('Error getting location: ' + JSON.stringify(err));
-      },
-      { timeout: 10 }
-  );
-  return false;
-};
-
-const addToContacts = function(event) {
-  event.preventDefault();
-  console.log('addToContacts');
-
-  if (!navigator.contacts) {
-      alert("Contacts API not supported", "Error");
-      return;
-  }
-
-  var contact = navigator.contacts.create();
-
-  if (!contact) {
-      alert("Contacts API not supported", "Error");
-      return;
-  }
-
-  contact.name = {givenName: employee.firstName, familyName: employee.lastName};
-  var phoneNumbers = [];
-  phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
-  phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true);
-  contact.phoneNumbers = phoneNumbers;
-
-  contact.save();
-
-  return false;
-};
-
-const changePicture = event => {
-
-  event.preventDefault();
-
-  if (!navigator.camera) {
-    alert("Camera API not supported", "Error");
-    return;
-  }
-  var options =   {
-    quality: 50,
-    destinationType: Camera.DestinationType.DATA_URL,
-    sourceType: 0,      // 0:Photo Library, 1=Camera, 2=Saved Album
-    encodingType: 0     // 0=JPG 1=PNG
-  };
-
-  navigator.camera.getPicture(
-    function(imgData) {
-      $('.media-object.emp-pic').attr('src', 'data:image/jpeg;base64,' + imgData);
-    },
-    function() {
-      alert('Error taking picture', 'Error');
-    },
-    options
-  );
-
-  return false;
-};
-
 const EmployeeView = ({ employee }) => (
   <React.Fragment>
     <header className="bar bar-nav">
@@ -157,3 +85,73 @@ const EmployeeView = ({ employee }) => (
 );
 
 export default EmployeeView;
+
+function addLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(
+      function(position) {
+          alert(position.coords.latitude + ',' + position.coords.longitude);
+      },
+      function(err) {
+          alert('Error getting location: ' + JSON.stringify(err));
+      },
+      { timeout: 10 }
+  );
+  return false;
+}
+
+function addToContacts(event) {
+  event.preventDefault();
+  console.log('addToContacts');
+
+  if (!navigator.contacts) {
+      alert("Contacts API not supported", "Error");
+      return;
+  }
+
+  var contact = navigator.contacts.create();
+
+  if (!contact) {
+      alert("Contacts API not supported", "Error");
+      return;
+  }
+
+  contact.name = {givenName: employee.firstName, familyName: employee.lastName};
+  var phoneNumbers = [];
+  phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
+  phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true);
+  contact.phoneNumbers = phoneNumbers;
+
+  contact.save();
+
+  return false;
+}
+
+function changePicture(event) {
+
+  event.preventDefault();
+
+  if (!navigator.camera) {
+    alert("Camera API not supported", "Error");
+    return;
+  }
+  var options =   {
+    quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL,
+    sourceType: 0,      // 0:Photo Library, 1=Camera, 2=Saved Album
+    encodingType: 0     // 0=JPG 1=PNG
+  };
+
+  navigator.camera.getPicture(
+    function(imgData) {
+      document.getElementsByClassName('media-object emp-pic')[0]
+        .src = 'data:image/jpeg;base64,' + imgData;
+    },
+    function() {
+      alert('Error taking picture', 'Error');
+    },
+    options
+  );
+
+  return false;
+}
