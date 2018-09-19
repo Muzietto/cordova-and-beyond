@@ -1,5 +1,16 @@
 import React from 'react';
 
+const TableViewCell = ({ href, children }) => (
+  <li className="table-view-cell media">
+    <a href={href} className="push-right">
+      <span className="media-object pull-left icon icon-call"></span>
+      <div className="media-body">
+        {children}
+      </div>
+    </a>
+  </li>
+)
+
 const EmployeeView = ({ employee }) => (
   <React.Fragment>
     <header className="bar bar-nav">
@@ -18,42 +29,22 @@ const EmployeeView = ({ employee }) => (
               <p>{employee.title}</p>
             </div>
           </li>
-          <li className="table-view-cell media">
-            <a href={`tel:${employee.officePhone}`} className="push-right">
-              <span className="media-object pull-left icon icon-call"></span>
-              <div className="media-body">
-                Call Office
-                <p>{employee.officePhone}</p>
-              </div>
-            </a>
-          </li>
-          <li className="table-view-cell media">
-            <a href={`tel:${employee.cellPhone}`} className="push-right">
-              <span className="media-object pull-left icon icon-call"></span>
-              <div className="media-body">
-                Call Cell
-                <p>{employee.cellPhone}</p>
-              </div>
-            </a>
-          </li>
-          <li className="table-view-cell media">
-            <a href={`sms:${employee.cellPhone}`} className="push-right">
-              <span className="media-object pull-left icon icon-sms"></span>
-              <div className="media-body">
-                SMS
-                <p>{employee.cellPhone}</p>
-              </div>
-            </a>
-          </li>
-          <li className="table-view-cell media">
-            <a href={`mailto:${employee.email}`} className="push-right">
-              <span className="media-object pull-left icon icon-mail"></span>
-              <div className="media-body">
-                Email
-                <p>{employee.email}</p>
-              </div>
-            </a>
-          </li>
+          <TableViewCell href={`tel:${employee.officePhone}`}>
+            Call Office
+            <p>{employee.officePhone}</p>
+          </TableViewCell>
+          <TableViewCell href={`tel:${employee.cellPhone}`}>
+            Call Cell
+            <p>{employee.cellPhone}</p>
+          </TableViewCell>
+          <TableViewCell href={`sms:${employee.cellPhone}`}>
+            SMS
+            <p>{employee.cellPhone}</p>
+          </TableViewCell>
+          <TableViewCell href={`mailto:${employee.email}`}>
+            Email
+            <p>{employee.email}</p>
+          </TableViewCell>
           <li className="table-view-cell media">
             <a href="#" className="push-right add-location-btn" onClick={addLocation}>
               <span className="media-object pull-left"></span>
