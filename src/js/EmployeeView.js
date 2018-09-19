@@ -75,95 +75,83 @@ const changePicture = event => {
 const EmployeeView = ({ employee }) => (
   <React.Fragment>
     <header className="bar bar-nav">
-        <a className="btn btn-link btn-nav pull-left" href="#">
-            <span className="icon icon-left-nav"></span>
-        </a>
-        <h1 className="title">Employee</h1>
+      <a className="btn btn-link btn-nav pull-left" href="#">
+        <span className="icon icon-left-nav"></span>
+      </a>
+      <h1 className="title">Employee</h1>
     </header>
     <div className="content">
-        <div className="card">
-            <ul className="table-view">
-                <li className="table-view-cell media">
-                    <img className="media-object pull-left emp-pic" src={`assets/pics/${employee.pic}`} />
-                    <div className="media-body">
-                        {employee.firstName} {employee.lastName}
-                        <p>{employee.title}</p>
-                    </div>
-                </li>
-                <li className="table-view-cell media">
-                    <a href={`tel:${employee.officePhone}`} className="push-right">
-                        <span className="media-object pull-left icon icon-call"></span>
-                        <div className="media-body">
-                            Call Office
-                            <p>{employee.officePhone}</p>
-                        </div>
-                    </a>
-                </li>
-                <li className="table-view-cell media">
-                    <a href={`tel:${employee.cellPhone}`} className="push-right">
-                        <span className="media-object pull-left icon icon-call"></span>
-                        <div className="media-body">
-                            Call Cell
-                            <p>{employee.cellPhone}</p>
-                        </div>
-                    </a>
-                </li>
-                <li className="table-view-cell media">
-                    <a href={`sms:${employee.cellPhone}`} className="push-right">
-                        <span className="media-object pull-left icon icon-sms"></span>
-                        <div className="media-body">
-                            SMS
-                            <p>{employee.cellPhone}</p>
-                        </div>
-                    </a>
-                </li>
-                <li className="table-view-cell media">
-                    <a href={`mailto:${employee.email}`} className="push-right">
-                        <span className="media-object pull-left icon icon-mail"></span>
-                        <div className="media-body">
-                            Email
-                            <p>{employee.email}</p>
-                        </div>
-                    </a>
-                </li>
-                <li className="table-view-cell media">
-                  <a
-                    href="#"
-                    className="push-right add-location-btn"
-                    onClick={addLocation}
-                  >
-                    <span className="media-object pull-left"></span>
-                    <div className="media-body">
-                      Add location
-                    </div>
-                  </a>
-                </li>
-                <li className="table-view-cell media">
-                  <a
-                    href="#"
-                    className="push-right add-contact-btn"
-                    onClick={addToContacts}
-                  >
-                    <span className="media-object pull-left"></span>
-                    <div className="media-body">
-                      Add to contacts
-                    </div>
-                  </a>
-                </li>
-                <li className="table-view-cell media">
-                  <a
-                    href="#"
-                    className="push-right change-pic-btn"
-                    onClick={changePicture}
-                  >
-                    <span className="media-object pull-left"></span>
-                    <div className="media-body">
-                      Change Picture
-                    </div>
-                  </a>
-                </li>
-            </ul>
-        </div>
+      <div className="card">
+        <ul className="table-view">
+          <li className="table-view-cell media">
+            <img className="media-object pull-left emp-pic" src={`assets/pics/${employee.pic}`} />
+            <div className="media-body">
+              {employee.firstName} {employee.lastName}
+              <p>{employee.title}</p>
+            </div>
+          </li>
+          <li className="table-view-cell media">
+            <a href={`tel:${employee.officePhone}`} className="push-right">
+              <span className="media-object pull-left icon icon-call"></span>
+              <div className="media-body">
+                Call Office
+                <p>{employee.officePhone}</p>
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href={`tel:${employee.cellPhone}`} className="push-right">
+              <span className="media-object pull-left icon icon-call"></span>
+              <div className="media-body">
+                Call Cell
+                <p>{employee.cellPhone}</p>
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href={`sms:${employee.cellPhone}`} className="push-right">
+              <span className="media-object pull-left icon icon-sms"></span>
+              <div className="media-body">
+                SMS
+                <p>{employee.cellPhone}</p>
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href={`mailto:${employee.email}`} className="push-right">
+              <span className="media-object pull-left icon icon-mail"></span>
+              <div className="media-body">
+                Email
+                <p>{employee.email}</p>
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href="#" className="push-right add-location-btn" onClick={addLocation}>
+              <span className="media-object pull-left"></span>
+              <div className="media-body">
+                Add location
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href="#" className="push-right add-contact-btn" onClick={addToContacts}>
+              <span className="media-object pull-left"></span>
+              <div className="media-body">
+                Add to contacts
+              </div>
+            </a>
+          </li>
+          <li className="table-view-cell media">
+            <a href="#" className="push-right change-pic-btn" onClick={changePicture}>
+              <span className="media-object pull-left"></span>
+              <div className="media-body">
+                Change Picture
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </React.Fragment>
 );
