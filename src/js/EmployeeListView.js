@@ -1,43 +1,21 @@
-import $ from 'jquery';
-import Handlebars from 'handlebars';
+import React from 'react';
 
-const employeeListTpl = `
-<ul class="table-view">
-    {{#each this}}
-    <li class="table-view-cell media">
-      <a href="#employees/{{ id }}">
-          <img class="media-object pull-left" src="assets/pics/{{pic}}">
-          <div class="media-body">
-              {{firstName}} {{lastName}}
-              <p>{{title}}</p>
-          </div>
-      </a>
-    </li>
-    {{/each}}
-</ul>
-`
+const employeeMapper = ({id, pic, firstName, lastName, title}, index) => (
+  <li className="table-view-cell media" key={`emp_${index}`}>
+    <a href={`#employees/${id}`}>
+        <img className="media-object pull-left" src={`assets/pics/${pic}`} />
+        <div className="media-body">
+            {firstName} {lastName}
+            <p>{title}</p>
+        </div>
+    </a>
+  </li>
+);
 
-var EmployeeListView = function() {
-  var employees = [];
-
-  this.template = Handlebars.compile(employeeListTpl);
-
-  this.initialize = function() {
-    this.$el = $('<div/>');
-    this.render();
-  }
-
-  this.setEmployees = function(emps) {
-    this.employees = emps;
-    this.render();
-  }
-
-  this.render = function() {
-    this.$el.html(this.template(this.employees));
-    return this;
-  }
-
-  this.initialize();
-}
+const EmployeeListView = ({ employees }) => (
+  <ul className="table-view">
+      {employees.map(employeeMapper)}
+  </ul>
+);
 
 export default EmployeeListView;

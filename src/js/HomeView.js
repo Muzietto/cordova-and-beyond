@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import $ from 'jquery';
 import Handlebars from 'handlebars';
 import EmployeeListView from 'app/js/EmployeeListView';
@@ -25,7 +28,6 @@ const HomeView = function(service) {
       alert('Employee Directory v3.4');
     })
 
-    employeeListView = new EmployeeListView();
     this.render();
   }
 
@@ -33,14 +35,19 @@ const HomeView = function(service) {
     const self = this;
     service.findByName($('.search-key', this.$el).val())
       .done(function (employees) {
-          $('.content', self.$el)
-            .html(employeeListView.setEmployees(employees));
+          ReactDOM.render(
+            <EmployeeListView employees={employees} />,
+            $('.content', self.$el)[0]
+          );
       });
   }
 
   this.render = function() {
       this.$el.html(this.template());
-      $('.content', this.$el).html(employeeListView.$el);
+      ReactDOM.render(
+        <EmployeeListView employees={[]} />,
+        $('.content', this.$el)[0]
+      );
       return this;
     }
 
