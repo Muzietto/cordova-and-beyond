@@ -9,10 +9,8 @@ import 'assets/css/styles.css'
 import 'assets/css/pageslider.css'
 
 import HomeView from 'app/js/HomeView';
-import EmployeeListView from 'app/js/EmployeeListView';
 import EmployeeView from 'app/js/EmployeeView';
 import router from 'app/js/lib/router';
-import PageSlider from 'app/js/lib/pageslider';
 import EmployeeService from 'app/js/services/memory/EmployeeService';
 
 //https://stackoverflow.com/questions/37313954/how-to-url-loader-multiple-images-in-webpack
@@ -22,13 +20,15 @@ requireContext.keys().map(requireContext);
 
 console.log(`username is ${sampleConstants.username}`);
 
-var slider = new PageSlider($('#SLIDER_ROOT'));
 var service = new EmployeeService();
 
 service.initialize().done(function () {
   router.addRoute('', function() {
     ReactDOM.unmountComponentAtNode(document.getElementById('REACT_ROOT'))
-    slider.slidePage(new HomeView(service).render().$el);
+    ReactDOM.render(
+      <HomeView service={service} />,
+      document.getElementById('REACT_ROOT')
+    );
   });
 
   router.addRoute('employees/:id', function(id) {
