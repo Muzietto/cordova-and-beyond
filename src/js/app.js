@@ -6,7 +6,6 @@ import { sampleConstants } from 'environment'
 
 import 'assets/ratchet/css/ratchet.css'
 import 'assets/css/styles.css'
-import 'assets/css/pageslider.css'
 
 import HomeView from 'app/js/HomeView';
 import EmployeeView from 'app/js/EmployeeView';
