@@ -5,7 +5,7 @@
     "node": ">=6.9.2"
   },
   "version": "1.0.0",
-  "description": "An Apache Cordova application built with Webpack, Yarn and Gulp.",
+  "description": "An Apache Cordova application built with Webpack, Yarn/Gulp and eventually moved to React/styled-components.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
