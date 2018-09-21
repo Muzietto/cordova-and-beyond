@@ -103,7 +103,7 @@ function webpackDevServerTask(callback) {
   const WebpackDevServer = require('webpack-dev-server');
 
   const webpackConfig = require('./config/webpack.config.js')(
-    argv.environment || 'dev',
+    argv.environment || 'development',
     argv.target
   );
 

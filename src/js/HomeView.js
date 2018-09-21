@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { hot } from 'react-hot-loader'
 
 import EmployeeListView from 'app/js/EmployeeListView';
 
@@ -20,7 +20,7 @@ class HomeView extends Component {
           <h1 className="title">Directory</h1>
         </header>
         <div className="bar bar-standard bar-header-secondary">
-          <input type="button" className="the-button" value="CLICK" onClick={alerter.bind(this)} />
+          <input type="button" className="the-button" value="CLICK ME softly!" onClick={alerter.bind(this)} />
           <input className='search-key' type="search" onKeyUp={findByName(this, this.service)} />
         </div>
         <div className="content">
@@ -31,7 +31,7 @@ class HomeView extends Component {
   }
 }
 
-export default HomeView;
+export default hot(module)(HomeView);
 
 function alerter() { alert('Employee Directory v3.4'); };
 

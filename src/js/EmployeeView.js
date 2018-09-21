@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader'
 
 const TableViewCell = ({ href, children }) => (
   <li className="table-view-cell media">
@@ -75,7 +76,7 @@ const EmployeeView = ({ employee }) => (
   </React.Fragment>
 );
 
-export default EmployeeView;
+export default hot(module)(EmployeeView);
 
 function addLocation(event) {
   event.preventDefault();
