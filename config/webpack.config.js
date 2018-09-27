@@ -24,7 +24,6 @@ module.exports = function getWebpackConfig(
     },
 
     devtool: '#inline-source-map',
-
     module: {
       rules: [
         {
@@ -43,6 +42,7 @@ module.exports = function getWebpackConfig(
                 'transform-object-rest-spread',
                 'transform-class-properties',
                 'transform-export-default',
+                'transform-runtime',
                 [
                   'transform-runtime',
                   {
