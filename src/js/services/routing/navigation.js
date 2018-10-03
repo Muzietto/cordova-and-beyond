@@ -7,13 +7,13 @@ const router = new UniversalRouter(routes)
 const container = document.getElementById('container');
 
 export default function navigateTo(location) {
-    history.push(location);
-    router.resolve(location)
-      .then(renderComponent)
-      .catch(function(error) {
-        router.resolve({ pathname: '/error', error })
-          .then(renderComponent)
-      });
+  history.push(location);
+  router.resolve(location)
+    .then(renderComponent)
+    .catch(function(error) {
+      router.resolve({ pathname: '/error', error })
+        .then(renderComponent)
+    });
 }
 
 function renderComponent(component) {

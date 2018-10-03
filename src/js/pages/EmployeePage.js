@@ -12,7 +12,7 @@ const TableViewCell = ({ href, children }) => (
   </li>
 )
 
-const EmployeeView = ({ employee }) => (
+const EmployeePage = ({ employee }) => (
   <React.Fragment>
     <header className="bar bar-nav">
       <a className="btn btn-link btn-nav pull-left" href="#">
@@ -76,7 +76,7 @@ const EmployeeView = ({ employee }) => (
   </React.Fragment>
 );
 
-export default hot(module)(EmployeeView);
+export default hot(module)(EmployeePage);
 
 function addLocation(event) {
   event.preventDefault();

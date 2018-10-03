@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader'
 
-import EmployeeListView from 'app/js/EmployeeListView';
+import EmployeeListPage from 'app/js/pages/EmployeeListPage';
 
-class HomeView extends Component {
+class HomePage extends Component {
 
   constructor({ service }) {
     super();
@@ -31,7 +31,7 @@ class HomeView extends Component {
   }
 }
 
-export default hot(module)(HomeView);
+export default hot(module)(HomePage);
 
 function alerter() { alert('Employee Directory v3.4'); };
 

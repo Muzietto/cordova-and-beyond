@@ -8,6 +8,7 @@
   "description": "An Apache Cordova application built with Webpack, Yarn/Gulp and eventually moved to React/styled-components.",
   "main": "index.js",
   "scripts": {
+    "watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marco Faustinelli (muzietto)",
@@ -26,7 +27,7 @@
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
-    "react-transition-group": "^1.2.1",
+    "react-transition-group": "^2.5.0",
     "universal-router": "^6.0.0"
   },
   "devDependencies": {

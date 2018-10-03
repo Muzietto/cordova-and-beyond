@@ -12,10 +12,10 @@ const employeeMapper = ({id, pic, firstName, lastName, title}, index) => (
   </li>
 );
 
-const EmployeeListView = ({ employees }) => (
+const EmployeeListPage = ({ employees }) => (
   <ul className="table-view">
     {employees.map(employeeMapper)}
   </ul>
 );
 
-export default EmployeeListView;
+export default EmployeeListPage;

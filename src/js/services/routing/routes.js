@@ -1,9 +1,11 @@
 import React from 'react';
-import HomePage from './pages/HomePage';
-import TaskList from './pages/TaskList';
-import TaskDetails from './pages/TaskDetails';
-import ErrorPage from './pages/ErrorPage';
-import Layout from './pages/TransitioningPageLayout';
+import HomePage from 'app/js/pages/HomePage';
+import EmployeePage from 'app/js/pages/EmployeePage';
+import ErrorPage from 'app/js/pages/ErrorPage';
+import Layout from 'app/js/pages/TransitioningPageLayout';
+import EmployeeService from 'app/js/services/memory/EmployeeService';
+
+const service = new EmployeeService();
 
 const routes = {
   path: '',
@@ -20,14 +22,15 @@ const routes = {
   },
   children: [
     {path: '/', action(context) {
-      return {context, component: <HomePage>Gran Birillo</HomePage>}
+      return {context, component: <HomePage service={service} />}
     }},
     {path: '/task', action(context) {
       return {context, component: <TaskList />}
     }},
-    {path: '/task/:id', action(context) {
+    {path: '/employees/:id', async action(context) {
       const {params:{id}} = context;
-      return {context, component: <TaskDetails id={id}>GIOVE</TaskDetails>}
+      const employee = yield service.findById(parseInt(id));
+      return {context, component: <EmployeePage employee={employee} />}
     }},
     {path: '/error', action(context) {
       const {error:{code}} = context;
