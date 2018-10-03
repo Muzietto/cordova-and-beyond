@@ -27,9 +27,9 @@ const routes = {
     {path: '/task', action(context) {
       return {context, component: <TaskList />}
     }},
-    {path: '/employees/:id', async action(context) {
+    {path: '/employees/:id', action: async function(context) {
       const {params:{id}} = context;
-      const employee = yield service.findById(parseInt(id));
+      const employee = await service.findById(parseInt(id));
       return {context, component: <EmployeePage employee={employee} />}
     }},
     {path: '/error', action(context) {

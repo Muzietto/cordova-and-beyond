@@ -1,6 +1,6 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import './transitions.css'
+import 'app/assets/css/transitions.css'
 
 const Layout = ({children}) => (
   <CSSTransitionGroup
