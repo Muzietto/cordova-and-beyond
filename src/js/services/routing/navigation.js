@@ -4,7 +4,7 @@ import routes from './routes';
 import history from './history';
 
 const router = new UniversalRouter(routes)
-const container = document.getElementById('container');
+const container = document.getElementById('REACT_ROOT');
 
 export default function navigateTo(location) {
   history.push(location);

@@ -24,7 +24,7 @@ class HomePage extends Component {
           <input className='search-key' type="search" onKeyUp={findByName(this, this.service)} />
         </div>
         <div className="content">
-          <EmployeeListView employees={this.state.employees} />
+          <EmployeeListPage employees={this.state.employees} />
         </div>
       </React.Fragment>
     )

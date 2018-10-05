@@ -7,6 +7,9 @@ import 'assets/ratchet/css/ratchet.css'
 import 'assets/css/styles.css'
 
 import navigateTo from 'app/js/services/routing/navigation'
+import EmployeeService from 'app/js/services/memory/EmployeeService';
+
+const service = new EmployeeService();
 
 //https://stackoverflow.com/questions/37313954/how-to-url-loader-multiple-images-in-webpack
 //https://stackoverflow.com/questions/31419899/webpack-dynamic-require-with-loaders-in-require-statement/31436916#31436916
